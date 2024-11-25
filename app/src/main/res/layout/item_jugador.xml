@@ -3,20 +3,27 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
-    android:padding="16dp">
+    android:padding="12dp"
+    android:background="@drawable/background_item"
+    android:elevation="4dp"
+    android:layout_margin="8dp">
 
     <ImageView
         android:id="@+id/imagenJugador"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginEnd="12dp"
         android:scaleType="centerCrop"
-        android:src="@drawable/error_imagen" />
+        android:src="@drawable/error_imagen"
+        android:background="@drawable/fondo_imagen_redondo"
+        android:layout_marginTop="20dp"/>
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:paddingStart="8dp">
 
         <TextView
             android:id="@+id/nombreJugador"
@@ -24,38 +31,55 @@
             android:layout_height="wrap_content"
             android:text="Nombre del Jugador"
             android:textSize="18sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:textColor="#1A237E" />
 
         <TextView
             android:id="@+id/posicionJugador"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Posición"
-            android:textSize="14sp" />
+            android:textSize="14sp"
+            android:textColor="#616161" />
 
         <TextView
             android:id="@+id/urlWeb"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="URL del Jugador" />
+            android:text="URL del Jugador"
+            android:textSize="14sp"
+            android:textColor="#0288D1" />
 
         <TextView
             android:id="@+id/telefono"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Teléfono" />
+            android:text="Teléfono"
+            android:textSize="14sp"
+            android:textColor="#616161" />
 
-        <RadioButton
-            android:id="@+id/radioButton"
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Seleccionar" />
+            android:orientation="horizontal"
+            android:layout_marginTop="8dp">
 
-        <RatingBar
-            android:id="@+id/ratingBar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:numStars="5"
-            android:stepSize="0.5" />
+            <RadioButton
+                android:id="@+id/radioButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Seleccionar"
+                android:textColor="#1A237E" />
+
+            <RatingBar
+                android:id="@+id/ratingBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:numStars="5"
+                android:stepSize="0.5"
+                android:rating="4.0"
+                android:progressTint="#FFC107" />
+        </LinearLayout>
     </LinearLayout>
 </LinearLayout>

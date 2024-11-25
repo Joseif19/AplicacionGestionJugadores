@@ -1,6 +1,8 @@
 package com.example.aplicaciongestion;
 
-public class Jugador {
+import java.io.Serializable; // Añadido para usar Serializable
+
+public class Jugador implements Serializable { // Implementar Serializable
     private String nombre, posicion, webEquipo, telefonoJugador;
     private int dorsal, mediaPuntosPorPartido, imagen;
     private float valoracionJugador;
@@ -17,6 +19,12 @@ public class Jugador {
         this.mediaPuntosPorPartido = mediaPuntosPorPartido;
         this.telefonoJugador = telefonoJugador;
         this.valoracionJugador = valoracionJugador;
+    }
+
+    public Jugador(String nombre, String posicion, String telefono) {
+        this.nombre = nombre;
+        this.posicion = posicion;
+        this.telefonoJugador = telefonoJugador;
     }
 
     public int getImagen() {
@@ -67,5 +75,3 @@ public class Jugador {
         this.valoracionJugador = valoracionJugador;
     }
 }
-
-
