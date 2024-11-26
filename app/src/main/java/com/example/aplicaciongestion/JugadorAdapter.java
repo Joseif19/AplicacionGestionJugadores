@@ -1,10 +1,12 @@
 package com.example.aplicaciongestion;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RatingBar;
@@ -17,10 +19,14 @@ public class JugadorAdapter extends BaseAdapter {
     private Context context;
     private List<Jugador> jugadores;
 
-    public JugadorAdapter(Context context, List<Jugador> jugadores) {
+    private final int requestModificarJugador;
+
+    public JugadorAdapter(Context context, List<Jugador> jugadores, int requestModificarJugador) {
         this.context = context;
         this.jugadores = jugadores;
+        this.requestModificarJugador = requestModificarJugador;
     }
+
 
     @Override
     public int getCount() {
@@ -44,25 +50,35 @@ public class JugadorAdapter extends BaseAdapter {
             convertView = inflater.inflate(R.layout.item_jugador, parent, false);
         }
 
+        // Vincular vistas
         ImageView imagenJugador = convertView.findViewById(R.id.imagenJugador);
         TextView nombreJugador = convertView.findViewById(R.id.nombreJugador);
         TextView posicionJugador = convertView.findViewById(R.id.posicionJugador);
         TextView urlWeb = convertView.findViewById(R.id.urlWeb);
         TextView telefono = convertView.findViewById(R.id.telefono);
-        RadioButton radioButton = convertView.findViewById(R.id.radioButton);
         RatingBar ratingBar = convertView.findViewById(R.id.ratingBar);
 
+        // Obtener el jugador actual
         Jugador jugador = jugadores.get(position);
 
+        // Asignar datos a las vistas
+        imagenJugador.setImageResource(jugador.getImagen());
         nombreJugador.setText(jugador.getNombre());
         posicionJugador.setText(jugador.getPosicion());
         urlWeb.setText(jugador.getWebEquipo());
-        telefono.setText(String.valueOf(jugador.getTelefonoJugador()));
+        telefono.setText(jugador.getTelefonoJugador());
         ratingBar.setRating(jugador.getValoracionJugador());
 
-        imagenJugador.setImageResource(jugador.getImagen());
+        // Configurar el evento del botón Modificar
+        Button botonModificar = convertView.findViewById(R.id.botonModificar);
+        botonModificar.setOnClickListener(v -> {
+            Intent intent = new Intent(context, InsertarModificarJugador.class);
+            intent.putExtra("jugador", jugador); // Jugador debe implementar Serializable
+            ((MainActivity) context).startActivityForResult(intent, MainActivity.REQUEST_MODIFICAR_JUGADOR);
+        });
 
         return convertView;
     }
+
 
 }

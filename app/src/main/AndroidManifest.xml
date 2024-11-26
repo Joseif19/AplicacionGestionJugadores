@@ -30,6 +30,10 @@
             android:name=".Jugador"
             android:exported="true" />
 
+        <activity
+            android:name=".InsertarModificarJugador"
+            android:exported="true" />
+
     </application>
 
 </manifest>

@@ -5,41 +5,47 @@
     android:orientation="vertical"
     android:padding="16dp">
 
-    <!-- Campos de texto para insertar/modificar -->
     <EditText
         android:id="@+id/edt_nombre"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Nombre"
-        android:layout_marginBottom="16dp"/>
+        android:hint="Nombre del jugador"
+        android:inputType="textPersonName"
+        android:padding="8dp" />
 
     <EditText
         android:id="@+id/edt_posicion"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Posición"
-        android:layout_marginBottom="16dp"/>
+        android:inputType="text"
+        android:padding="8dp"/>
 
     <EditText
         android:id="@+id/edt_telefono"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Teléfono"
-        android:layout_marginBottom="16dp"/>
+        android:inputType="phone"
+        android:padding="8dp" />
 
-    <!-- Botón para Insertar -->
-    <Button
-        android:id="@+id/btn_insertar"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Insertar"
-        android:layout_marginBottom="16dp" />
+        android:orientation="horizontal"
+        android:gravity="center">
 
-    <!-- Botón para Modificar -->
-    <Button
-        android:id="@+id/btn_modificar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Modificar" />
+        <Button
+            android:id="@+id/btn_guardar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Guardar" />
 
+        <Button
+            android:id="@+id/btn_cancelar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cancelar" />
+
+    </LinearLayout>
 </LinearLayout>

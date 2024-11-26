@@ -2,7 +2,8 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/menu_editar"
-        android:title="Editar" />
+        android:id="@+id/menu_insertar"
+        android:title="Insertar nuevo jugador"
+        android:icon="@drawable/icono_anadir"/>
 
 </menu>
