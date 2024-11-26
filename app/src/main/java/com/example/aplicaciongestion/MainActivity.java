@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.ContextMenu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ListView;
 
 import androidx.annotation.NonNull;
@@ -24,6 +25,8 @@ public class MainActivity extends AppCompatActivity {
     private List<Jugador> jugadores;
     private JugadorAdapter jugadorAdapter;
     private int jugadorSeleccionadoIndex = -1;
+    private Button botonInsertar;
+    private Button botonModificar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,18 +42,32 @@ public class MainActivity extends AppCompatActivity {
         jugadorAdapter = new JugadorAdapter(this, jugadores);
         listaJugadores.setAdapter(jugadorAdapter);
 
-        FloatingActionButton fabAgregar = findViewById(R.id.fab_agregar);
-        fabAgregar.setOnClickListener(v -> {
-            Intent intent = new Intent(MainActivity.this, InsertarModificarJugador.class);
-            startActivityForResult(intent, REQUEST_CODE_INSERTAR);
-        });
-
         registerForContextMenu(listaJugadores);
 
         listaJugadores.setOnItemLongClickListener((adapterView, view, position, id) -> {
             jugadorSeleccionadoIndex = position;
             return false;
         });
+
+        botonInsertar = (Button) findViewById(R.id.botonInsertar);
+        botonModificar = (Button) findViewById(R.id.botonModificar);
+
+        botonInsertar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent irAInsertar = new Intent(MainActivity.this, InsertarModificarJugador.class);
+                startActivity(irAInsertar);
+            }
+        });
+
+        botonModificar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent irAModificar = new Intent(MainActivity.this, InsertarModificarJugador.class);
+                startActivity(irAModificar);
+            }
+        });
+
     }
 
     @Override

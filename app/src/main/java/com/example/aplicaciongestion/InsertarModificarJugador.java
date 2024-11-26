@@ -13,7 +13,7 @@ public class InsertarModificarJugador extends AppCompatActivity {
 
     private Button btnInsertar, btnModificar;
     private EditText edtNombre, edtPosicion, edtTelefono;
-    private Jugador jugador; // Si necesitas pasar datos del jugador
+    private Jugador jugador;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
