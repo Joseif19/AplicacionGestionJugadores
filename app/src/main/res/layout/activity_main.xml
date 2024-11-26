@@ -5,17 +5,38 @@
     android:orientation="vertical"
     android:background="#F5F5F5">
 
-    <TextView
+    <!-- Barra superior con el título y el icono "+" -->
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="Jugadores"
-        android:textStyle="bold"
-        android:textSize="24sp"
+        android:orientation="horizontal"
         android:background="#001F54"
-        android:textColor="#FFFFFF"
-        android:padding="16dp" />
+        android:padding="8dp">
 
+        <!-- Título "Jugadores" -->
+        <TextView
+            android:id="@+id/titulo_jugadores"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Jugadores"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <!-- Ícono "+" para añadir nuevo jugador -->
+        <ImageButton
+            android:id="@+id/menu_insertar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/icono_anadir"
+            android:contentDescription="Añadir Jugador"
+            android:background="?android:attr/selectableItemBackground"
+            android:padding="8dp" />
+    </LinearLayout>
+
+    <!-- Lista de jugadores -->
     <ListView
         android:id="@+id/lista"
         android:layout_width="match_parent"
@@ -23,8 +44,5 @@
         android:divider="@color/lineaListView"
         android:dividerHeight="1dp"
         android:padding="8dp" />
-
-
-
 
 </LinearLayout>

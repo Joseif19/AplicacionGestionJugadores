@@ -1,7 +1,5 @@
 package com.example.aplicaciongestion;
 
-import static androidx.core.app.ActivityCompat.startActivityForResult;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -35,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
 
         // Inicializar la lista de jugadores con datos de ejemplo
         listaJugadores = new ArrayList<>();
-        listaJugadores.add(new Jugador("LeBron James", "Alero", R.drawable.lebron_james, "https://www.lakers.com", 23, 27, "123456789", 4.5f));
+        listaJugadores.add(new Jugador("Lebron James", "Alero", R.drawable.lebron_james, "https://www.lakers.com", 23, 27, "123456789", 4.5f));
         listaJugadores.add(new Jugador("Stephen Curry", "Base", R.drawable.stephen_curry, "https://www.warriors.com", 30, 28, "987654321", 4.8f));
 
         jugadorAdapter = new JugadorAdapter(this, listaJugadores, REQUEST_MODIFICAR_JUGADOR);
@@ -48,7 +46,14 @@ public class MainActivity extends AppCompatActivity {
             intent.putExtra("jugador", jugadorSeleccionado);
             startActivityForResult(intent, REQUEST_MODIFICAR_JUGADOR);
         });
+
+        // Configurar la acción del botón "+" para añadir un jugador
+        findViewById(R.id.menu_insertar).setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, InsertarModificarJugador.class);
+            startActivityForResult(intent, REQUEST_CODE_INSERTAR);
+        });
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -56,18 +61,21 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
+
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.menu_insertar:
-                // Abre la actividad para insertar un nuevo jugador
-                Intent intent = new Intent(MainActivity.this, InsertarModificarJugador.class);
-                startActivityForResult(intent, REQUEST_CODE_INSERTAR);
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
+        int id = item.getItemId();
+
+        if (id == R.id.menu_insertar) {
+            Intent intent = new Intent(MainActivity.this, InsertarModificarJugador.class);
+            startActivityForResult(intent, REQUEST_CODE_INSERTAR);
+            return true;
+        } else {
+            return super.onOptionsItemSelected(item);
         }
     }
+
+
 
     // Manejar el resultado de las actividades de insertar o modificar jugador
     @Override

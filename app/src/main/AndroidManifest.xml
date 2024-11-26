@@ -23,6 +23,7 @@
         </activity>
 
         <activity
+            android:theme="@style/Base.Theme.AplicacionGestion"
             android:name=".MainActivity"
             android:exported="true" />
 
