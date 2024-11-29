@@ -93,14 +93,26 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent"
+            android:gravity="right">
 
-
-            <Button
+            <ImageButton
                 android:id="@+id/botonModificar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Modificar"/>
+                android:src="@drawable/baseline_edit_24"
+                android:contentDescription="Editar Jugador"
+                android:background="?android:attr/selectableItemBackground"
+                android:padding="8dp"/>
+
+            <ImageButton
+                android:id="@+id/botonBorrar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/baseline_delete_24"
+                android:contentDescription="Borrar Jugador"
+                android:background="?android:attr/selectableItemBackground"
+                android:padding="8dp" />
 
         </LinearLayout>
     </LinearLayout>
