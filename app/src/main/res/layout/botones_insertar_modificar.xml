@@ -1,51 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:padding="16dp">
-
-    <EditText
-        android:id="@+id/edt_nombre"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Nombre del jugador"
-        android:inputType="textPersonName"
-        android:padding="8dp" />
-
-    <EditText
-        android:id="@+id/edt_posicion"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Posición"
-        android:inputType="text"
-        android:padding="8dp"/>
-
-    <EditText
-        android:id="@+id/edt_telefono"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Teléfono"
-        android:inputType="phone"
-        android:padding="8dp" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center">
+        android:orientation="vertical">
 
-        <Button
-            android:id="@+id/btn_guardar"
-            android:layout_width="wrap_content"
+        <!-- Campo para el nombre del jugador -->
+        <EditText
+            android:id="@+id/edt_nombre"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Guardar" />
+            android:hint="Nombre del jugador"
+            android:inputType="textPersonName"
+            android:padding="8dp" />
 
-        <Button
-            android:id="@+id/btn_cancelar"
-            android:layout_width="wrap_content"
+        <!-- Campo para la posición -->
+        <EditText
+            android:id="@+id/edt_posicion"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Cancelar" />
+            android:hint="Posición"
+            android:inputType="text"
+            android:padding="8dp" />
 
+        <!-- Campo para el teléfono -->
+        <EditText
+            android:id="@+id/edt_telefono"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Teléfono"
+            android:inputType="phone"
+            android:padding="8dp" />
+
+        <!-- Sección para añadir una imagen -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="16dp"
+            android:gravity="center">
+
+            <!-- Vista de la imagen seleccionada -->
+            <ImageView
+                android:id="@+id/img_jugador"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:scaleType="centerCrop"
+                android:background="@drawable/border_background"
+                android:contentDescription="Imagen del jugador" />
+
+            <!-- Botón para seleccionar imagen -->
+            <Button
+                android:id="@+id/btn_seleccionar_imagen"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Seleccionar Imagen"
+                android:layout_marginTop="8dp" />
+        </LinearLayout>
+
+        <!-- Botones de Guardar y Cancelar -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginTop="16dp">
+
+            <Button
+                android:id="@+id/btn_guardar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Guardar" />
+
+            <Button
+                android:id="@+id/btn_cancelar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Cancelar"
+                android:layout_marginStart="16dp" />
+        </LinearLayout>
     </LinearLayout>
-</LinearLayout>
+</ScrollView>

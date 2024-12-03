@@ -1,48 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
+    android:layout_height="match_parent"
     android:background="#F5F5F5">
 
-    <!-- Barra superior con el título y el icono "+" -->
+    <!-- Contenedor vertical -->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:background="#001F54"
-        android:padding="8dp">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <!-- Título "Jugadores" -->
-        <TextView
-            android:id="@+id/titulo_jugadores"
-            android:layout_width="0dp"
+        <!-- Barra superior con el título y el icono "+" -->
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="Jugadores"
-            android:textColor="#FFFFFF"
-            android:textSize="20sp"
-            android:textStyle="bold" />
+            android:orientation="horizontal"
+            android:background="#001F54"
+            android:padding="8dp">
 
-        <!-- Ícono "+" para añadir nuevo jugador -->
-        <ImageButton
-            android:id="@+id/menu_insertar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/icono_anadir"
-            android:contentDescription="Añadir Jugador"
-            android:background="?android:attr/selectableItemBackground"
+            <!-- Título "Jugadores" -->
+            <TextView
+                android:id="@+id/titulo_jugadores"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Jugadores"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <!-- Ícono "+" para añadir nuevo jugador -->
+            <ImageButton
+                android:id="@+id/menu_insertar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/icono_anadir"
+                android:contentDescription="Añadir Jugador"
+                android:background="?android:attr/selectableItemBackground"
+                android:padding="8dp" />
+        </LinearLayout>
+
+        <!-- Lista de jugadores -->
+        <ListView
+            android:id="@+id/lista"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:divider="@color/lineaListView"
+            android:dividerHeight="1dp"
             android:padding="8dp" />
     </LinearLayout>
 
-    <!-- Lista de jugadores -->
-    <ListView
-        android:id="@+id/lista"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:divider="@color/lineaListView"
-        android:dividerHeight="1dp"
-        android:padding="8dp" />
+    <!-- FloatingActionButton -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="16dp"
+        android:src="@drawable/icono_anadir" />
 
-</LinearLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

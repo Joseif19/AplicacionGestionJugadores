@@ -6,8 +6,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
@@ -35,8 +33,8 @@ public class MainActivity extends AppCompatActivity {
 
         // Inicializar la lista de jugadores con datos de ejemplo
         listaJugadores = new ArrayList<>();
-        listaJugadores.add(new Jugador("Lebron James", "Alero", R.drawable.lebron_james, "https://www.lakers.com", 23, 27, "123456789", 4.5f));
-        listaJugadores.add(new Jugador("Stephen Curry", "Base", R.drawable.stephen_curry, "https://www.warriors.com", 30, 28, "987654321", 4.8f));
+        listaJugadores.add(new Jugador("Lebron James", "Alero", R.drawable.lebron_james, "https://www.lakers.com", "web", 23, 27, "123456789", 4.5f));
+        listaJugadores.add(new Jugador("Stephen Curry", "Base", R.drawable.stephen_curry, "https://www.warriors.com", "web", 30, 28, "987654321", 4.8f));
 
         jugadorAdapter = new JugadorAdapter(this, listaJugadores, REQUEST_MODIFICAR_JUGADOR);
         listViewJugadores.setAdapter(jugadorAdapter);
